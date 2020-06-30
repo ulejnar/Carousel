@@ -17,10 +17,11 @@ function Carousel(props) {
       <h1>{props.title}</h1>
       <div className="Carousel-main">
         <i
-          className="fas fa-chevron-circle-left fa-2x"
+          className={cardIdx > 0 ? "fas fa-chevron-circle-left fa-2x" : "hidden"}
           onClick={goBackward}
           data-testid="left-arrow"
         />
+      
         <Card
           caption={card.caption}
           src={card.src}
@@ -28,7 +29,7 @@ function Carousel(props) {
           totalNum={total}
         />
         <i
-          className="fas fa-chevron-circle-right fa-2x"
+          className={cardIdx < 2 ? "fas fa-chevron-circle-right fa-2x" : "hidden"}
           onClick={goForward}
           data-testid="right-arrow"
         />

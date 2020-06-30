@@ -41,3 +41,12 @@ it("moves backwards when you click on the left arrow", function(){
   expect(queryByAltText("Photo by Josh Post on Unsplash")).not.toBeInTheDocument();
   expect(queryByAltText("Photo by Richard Pasquarella on Unsplash")).toBeInTheDocument();
 })
+
+it('when we are on the third image then the right arrow will hide', () => {
+  const { queryByTestId, queryByAltText } = render(<Carousel />);
+  const leftArrow = queryByTestId('left-arrow');
+
+  expect(leftArrow).toHaveClass("hidden")
+
+
+})
