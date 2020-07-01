@@ -43,10 +43,15 @@ it("moves backwards when you click on the left arrow", function(){
 })
 
 it('when we are on the third image then the right arrow will hide', () => {
-  const { queryByTestId, queryByAltText } = render(<Carousel />);
+  const { queryByTestId } = render(<Carousel />);
   const leftArrow = queryByTestId('left-arrow');
+  const rightArrow = queryByTestId("right-arrow");
 
-  expect(leftArrow).toHaveClass("hidden")
+  expect(leftArrow).toHaveClass("hidden");
+  while (rightArrow.className !== "hidden") {
+    fireEvent.click(rightArrow);
+  }
+  expect(rightArrow).toHaveClass("hidden");
 
 
 })
